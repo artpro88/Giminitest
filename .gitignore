@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+debug_scrape.png
+fitzdares.png
+fitzdares.png.base64
+.env
+.DS_Store

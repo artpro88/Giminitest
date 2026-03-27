@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us - GiminiTest</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css?v=2">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-bs-theme', savedTheme);
+    })();
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top border-bottom border-secondary">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-gradient" href="/">GiminiTest</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/about">About</a></li>
+          <li class="nav-item ms-lg-3">
+            <button id="theme-toggle" class="btn btn-sm" title="Toggle theme">
+              <span id="theme-icon">🌙</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="py-5 mt-5">
+    <div class="container text-center py-5">
+      <h2 class="display-3 fw-bold mb-4">Our <span class="text-gradient">Story</span></h2>
+      <p class="lead text-secondary mx-auto" style="max-width: 800px;">
+        GiminiTest was founded on the principle that technology should be elegant, powerful, and accessible. We push the boundaries of what's possible in the digital realm.
+      </p>
+    </div>
+  </section>
+
+  <footer class="py-5 border-top border-secondary text-center">
+    <div class="container">
+      <p class="text-secondary mb-0">&copy; 2026 GiminiTest. Built with Passion.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      const icon = document.getElementById('theme-icon');
+      const html = document.documentElement;
+
+      const updateIcon = (theme) => {
+        icon.textContent = theme === 'dark' ? '🌙' : '☀️';
+      };
+
+      updateIcon(html.getAttribute('data-bs-theme'));
+
+      toggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        html.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcon(newTheme);
+      });
+    });
+  </script>
+</body>
+</html>
