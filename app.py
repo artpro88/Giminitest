@@ -7,8 +7,8 @@ import time
 app = Flask(__name__)
 
 # Browserless configuration
-BROWSERLESS_TOKEN = "2UE5AkChTxVhuOfa918d58ed477655d03be8abd47f7fe748f"
-BROWSERLESS_API_URL = "https://production-lon.browserless.io"
+BROWSERLESS_TOKEN = os.environ.get("BROWSERLESS_TOKEN", "2UE5AkChTxVhuOfa918d58ed477655d03be8abd47f7fe748f")
+BROWSERLESS_API_URL = os.environ.get("BROWSERLESS_API_URL", "https://production-lon.browserless.io")
 
 # Global cache
 cache = {
