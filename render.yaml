@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: giminitest-dashboard
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: BROWSERLESS_TOKEN
+        sync: false # Set this in Render Dashboard for security
+      - key: BROWSERLESS_API_URL
+        value: https://production-lon.browserless.io
+      - key: PYTHON_VERSION
+        value: 3.11.4
